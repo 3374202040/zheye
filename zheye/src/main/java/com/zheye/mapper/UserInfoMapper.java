@@ -27,7 +27,7 @@ public interface UserInfoMapper {
             @Result(property = "phone",column = "phone"),
             @Result(property = "sex",column = "sex"),
             @Result(property = "jointime",column = "jointime"),
-            @Result(property = "habitation",column = "habitation"),
+            @Result(property = "address",column = "address"),
             @Result(property = "profession",column = "profession"),
             @Result(property = "proHistory",column = "pro_history"),
             @Result(property = "eduExperience",column = "edu_experience"),

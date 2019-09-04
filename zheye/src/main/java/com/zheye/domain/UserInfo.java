@@ -11,7 +11,7 @@ public class UserInfo implements Serializable {
     private String phone;//电话
     private String sex;
     private Date jointime;
-    private String habitation;//居住地
+    private String address;//居住地
     private String profession;//所在行业
     private String proHistory;//职业经历
     private String eduExperience;//教育经历
@@ -73,12 +73,12 @@ public class UserInfo implements Serializable {
         this.jointime = jointime;
     }
 
-    public String getHabitation() {
-        return habitation;
+    public String getAddress() {
+        return address;
     }
 
-    public void setHabitation(String habitation) {
-        this.habitation = habitation;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getProfession() {
@@ -123,7 +123,7 @@ public class UserInfo implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", sex='" + sex + '\'' +
                 ", jointime=" + jointime +
-                ", habitation='" + habitation + '\'' +
+                ", address='" + address + '\'' +
                 ", profession='" + profession + '\'' +
                 ", proHistory='" + proHistory + '\'' +
                 ", eduExperience='" + eduExperience + '\'' +

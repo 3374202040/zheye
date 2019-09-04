@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="zh" data-hairline="true" data-theme="light">
+
+  <head>
+    <meta charSet="utf-8" />
+    <title data-react-helmet="true">哲冶 - 想问啥，来哲冶</title>
+    <style>
+    .u-safeAreaInset-top {
+      height: constant(safe-area-inset-top) !important;
+      height: env(safe-area-inset-top) !important;
+
+    }
+
+    .u-safeAreaInset-bottom {
+      height: constant(safe-area-inset-bottom) !important;
+      height: env(safe-area-inset-bottom) !important;
+
+    }
+    .EntrySign-body{
+      background-image: url(images/bgimg.jpg);
+      background-repeat:no-repeat;
+      background-size: cover;
+    }
+  </style>
+    <link href="css/app.a22669dfd7d242a5985f.css" rel="stylesheet" />
+    <link rel="stylesheet" />
+    <script defer="" crossorigin="anonymous" src="js/init.js"></script>
+  </head>
+
+  <body class="EntrySign-body">
+    <div id="root">
+      <div>
+        <div class="LoadingBar"></div>
+        <main role="main" class="App-main">
+          <div class="SignFlowHomepage">
+            <div class="SignFlowHomepage-content">
+              <center><img src="images/logo.png"
+                  style="width:128px;height:80.89px;margin-bottom: 24px;margin-top:25px" /></center>
+              <div class="Card SignContainer-content">
+                <div class="SignContainer-inner">
+                  <form novalidate="" class="SignFlow Login-content">
+                    <div class="SignFlow-tabs">
+                      <div id="nopwd" class="SignFlow-tab SignFlow-tab--active"
+                        onclick="nopwd()">免密码登录</div>
+                      <div id="usepwd" class="SignFlow-tab"onclick="usepwd()">密码登录</div>
+                    </div>
+
+
+                      <div class="SignFlow-account">
+                        <div class="SignFlow-supportedCountriesSelectContainer"></div>
+                        <div class="SignFlowInput
+                          SignFlow-accountInputContainer">
+                          <div class="SignFlow-accountInput Input-wrapper"><input id="phone"
+                              type="tel" value="" name="phone"
+                              class="Input" placeholder="手机号" /></div>
+                          <div class="SignFlowInput-errorMask
+                            SignFlowInput-requiredErrorMask
+                            SignFlowInput-errorMask--hidden"></div>
+                        </div>
+                      </div>
+                      <!--免密登录-->
+                      <div id="nopwd2" style="display: block">
+                      <div class="Captcha SignFlow-captchaContainer"
+                        style="width:352px;height:48px;margin:0;padding:0;border-bottom:1px
+                        solid #ebebeb">
+                          <div>
+                              <div class="SignFlowInput">
+                                  <div class="Input-wrapper"><input type="text" id="code1" name="code"
+                                                                    value="" name="captcha" tabindex="-1"
+                                                                    class="Input" placeholder="验证码" /></div>
+                                  <div class="SignFlowInput-errorMask
+                              SignFlowInput-requiredErrorMask
+                              SignFlowInput-errorMask--hidden"></div>
+                              </div><span class="Captcha-englishImage">
+                            <div class="Captcha-englishContainer"><img
+                                    data-tooltip="看不清楚？换一张"
+                                    class="Captcha-englishImg imagecode"
+                                     src="imageCode" alt="图形验证码" onclick="change()"/></div>
+                          </span>
+                          </div>
+                      </div>
+                      <div class="SignFlow SignFlow-smsInputContainer">
+                        <div class="SignFlowInput SignFlow-smsInput">
+                          <div class="Input-wrapper"><input type="number"
+                              value="" name="digits" class="Input"
+                              placeholder="输入 6 位短信验证码" /></div>
+                          <div class="SignFlowInput-errorMask
+                            SignFlowInput-requiredErrorMask
+                            SignFlowInput-errorMask--hidden"></div>
+                        </div><button type="button" class="Button
+                          CountingDownButton
+                          SignFlow-smsInputButton Button--plain">获取短信验证码</button>
+                      </div>
+                      <div class="Login-options"><button type="button"
+                          class="Button Login-switchType Button--plain"></button><button
+                          type="button" class="Button Login-cannotLogin
+                          Button--plain">接收语音验证码</button>
+                      </div>
+                    </div>
+                    <!--密码登录-->
+                      <div id="usepwd2" style="display: none">
+                      <div class="SignFlow-password">
+                        <div class="SignFlowInput">
+                          <div class="Input-wrapper"><input name="password"
+                              type="password" class="Input" placeholder="密码"
+                              value=""  id="password"></div>
+                          <div class="SignFlowInput-errorMask
+                            SignFlowInput-requiredErrorMask
+                            SignFlowInput-errorMask--hidden"></div>
+                        </div>
+                        <button tabindex="-1" type="button" class="Button
+                          SignFlow-switchPassword Button--plain">
+                          <!--隐藏密码-->
+                          <div id="hidepwd" style="display: block" onclick="hidepwd()">
+                          <svg width="24" height="20" viewBox="0 0 24 24"
+                            class="Icon
+                            SignFlow-switchPasswordIcon Icon--inconspicuous"
+                            aria-hidden="true" style="vertical-align: middle;
+                            height: 20px; width: 24px;">
+                            <title></title>
+                            <g>
+                              <title>Inconspicuous</title>
+                              <path d="M17.007 11.504c0 .65-.13 1.26-.36 1.83l3
+                                3.073S23 14.136 23 11.504C23 8.008 17.255 4
+                                11.995
+                                4c-1.4 0-2.741.25-3.982.701l2.161 2.16c.57-.23
+                                1.18-.36 1.831-.36a5.004 5.004 0 0 1 5.002
+                                5.003zM2.57 4.342l2.067 2.075C3.499 7.258 1
+                                9.119
+                                1 11.504c0 3.336 5.79 7.503 11.005 7.503 1.55 0
+                                3.031-.3 4.382-.84l.42.42 2.125 2.118s.782.571
+                                1.314 0-.074-1.305-.074-1.305L3.955
+                                3.183s-.76-.742-1.385-.19c-.626.554 0 1.35 0
+                                1.35zm4.963 4.96l1.55
+                                1.552c-.05.21-.08.43-.08.65
+                                0 1.66 1.341 3.001 3.002 3.001.22 0
+                                .44-.03.65-.08l1.551
+                                1.551c-.67.33-1.41.53-2.2.53a5.004 5.004 0 0
+                                1-5.003-5.002c0-.79.2-1.53.53-2.201zm4.312-.78l3.151
+                                3.152.02-.16c0-1.66-1.34-3.001-3.001-3.001l-.17.01z"
+                                fill-rule="evenodd"></path>
+                            </g>
+                          </svg>
+                        </div>
+                          <!--显示密码-->
+                          <div id="seepwd" style="display: none" onclick="seepwd()">
+                          <svg width="24" height="20" viewBox="0 0 24 24"
+                            class="Icon SignFlow-switchPasswordIcon Icon--read"
+                            aria-hidden="true" style="vertical-align: middle;
+                            height: 20px; width: 24px;"><title></title><g><title>Read</title><path
+                                d="M1 11.5C1 15 7 19 12 19s11-4 11-7.5S17 4 12 4
+                                1 8 1 11.5zm11 5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5
+                                2.24 5 5-2.24 5-5 5zm-3-5c0 1.66 1.34 3 3
+                                3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"
+                                fill-rule="evenodd"></path></g></svg>
+                            </div>
+                        </button>
+                      </div>
+                      <div class="Captcha SignFlow-captchaContainer">
+                          <div>
+                              <div class="SignFlowInput">
+                                  <div class="Input-wrapper"><input type="text"  id="code2" name="code"
+                                                                    value="" name="captcha" tabindex="-1"
+                                                                    class="Input" placeholder="验证码" /></div>
+                                  <div class="SignFlowInput-errorMask
+                              SignFlowInput-requiredErrorMask
+                              SignFlowInput-errorMask--hidden"></div>
+                              </div><span class="Captcha-englishImage">
+                            <div class="Captcha-englishContainer"><img
+                                    data-tooltip="看不清楚？换一张"
+                                    class="Captcha-englishImg imagecode"
+                                    src="imageCode" alt="图形验证码" onclick="change()"/></div>
+                          </span>
+                          </div>
+                      </div>
+                      <div class="Login-options"><button type="button"
+                          class="Button Login-switchType Button--plain">海外手机号登录</button><button
+                          type="button" class="Button Login-cannotLogin
+                          Button--plain">忘记密码？</button></div>
+                    </div>
+                    <!--注册登录按钮-->
+                    <button type="button" class="Button SignFlow-submitButton
+                      Button--primary Button--blue" id="btnLogin">注册/登录</button>
+                    <div class="SignContainer-tip">
+                      <div>
+                        <div>未注册手机验证后自动登录</div>
+                        <div>注册即代表同意<a href="https://www.zhihu.com/terms">《知乎协议》</a><a
+                            href="https://www.zhihu.com/term/privacy">《隐私保护指引》</a></div>
+                      </div><a href="https://www.zhihu.com/org/signup">注册机构号</a>
+                    </div>
+                  </form>
+                  <div class="SignFlowHomepage-qrImage
+                    SignFlowHomepage-qrImageHidden">
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+              <div style="height:75px">
+
+              </div>
+              <footer class="SignFlowHomepage-footer">
+                <div class="ZhihuLinks"><a target="_blank" rel="noopener
+                    noreferrer" href="https://zhuanlan.zhihu.com">哲冶专栏</a><a
+                    target="_blank" rel="noopener noreferrer"
+                    href="/roundtable">圆桌</a><a target="_blank" rel="noopener
+                    noreferrer" href="/explore">发现</a><a target="_blank"
+                    rel="noopener noreferrer"
+                    href="/app">移动应用</a><a target="_blank" rel="noopener
+                    noreferrer" href="/contact">联系我们</a><a target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://app.mokahr.com/apply/zhihu">来哲冶工作</a><a
+                    target="_blank" rel="noopener noreferrer"
+                    href="/org/signup">注册机构号</a></div>
+                <div class="ZhihuRights"><span>©
+                    <!-- -->2019
+                    <!-- --> 知乎</span><a target="_blank" rel="noopener
+                    noreferrer" href="https://tsm.miit.gov.cn/dxxzsp/">京
+                    ICP 证
+                    110745 号</a><a target="_blank" rel="noopener
+                    noreferrer"
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"><img
+                      src="images/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png" />京公网安备
+                    11010802010035 号</a><a
+                    href="https://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg"
+                    target="_blank" rel="noopener noreferrer">出版物经营许可证</a></div>
+                <div class="ZhihuReports"><a target="_blank" rel="noopener
+                    noreferrer" href="https://zhuanlan.zhihu.com/p/51068775">侵权举报</a><a
+                    target="_blank"
+                    rel="noopener noreferrer" href="http://www.12377.cn">网上有害信息举报专区</a><a
+                    target="_blank"
+                    rel="noopener noreferrer" href="/jubao">儿童色情信息举报专区</a><span>违法和不良信息举报：010-82716601</span></div>
+              </footer>
+            </div>
+          </div>
+          </main>
+          <div data-zop-usertoken="{}"></div>
+        </div>
+      </div>
+      <script src="js/vendor.7177302d6c7d65981005.js"></script>
+      <script src="js/main.app.114b1b95725ab1bd1d40.js"></script>
+      <script src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="static/layer/2.4/layer.js"></script>
+      <script>
+  function nopwd(){
+    $("#nopwd").attr("class","SignFlow-tab SignFlow-tab--active")
+    $("#usepwd").attr("class","SignFlow-tab")
+    document.getElementById("nopwd2").style.display="block"
+    document.getElementById("usepwd2").style.display="none"
+      $("#code2").val("")
+      $("#password").val("")
+  }
+  function usepwd(){
+    $("#nopwd").attr("class","SignFlow-tab")
+    $("#usepwd").attr("class","SignFlow-tab SignFlow-tab--active")
+    document.getElementById("nopwd2").style.display="none"
+    document.getElementById("usepwd2").style.display="block"
+      $("#code1").val("")
+  }
+  function hidepwd(){
+    document.getElementById("seepwd").style.display="block"
+    document.getElementById("hidepwd").style.display="none"
+    $("#password").attr("type","text")
+    
+  }
+  function seepwd(){
+    document.getElementById("hidepwd").style.display="block"
+    document.getElementById("seepwd").style.display="none"
+    $("#password").attr("type","password")
+  }
+  </script>
+    <script>
+      $(function () {
+          $("#btnLogin").click(()=>{
+              let phone =$.trim($("#phone").val())
+              if (!phone){
+                  alert("手机号不能为空")
+                  return
+              }
+              let code;
+              let code1=$.trim($("#code1").val())
+              let code2=$.trim($("#code2").val())
+              if (!code1){
+                  code=code2;
+              }
+              if (!code2){
+                  code=code1;
+              }if (!code){
+                  alert("请输入验证码")
+                  return
+              }
+              let password=$.trim($("#password").val())
+              if(!password&&!phone){
+                  alert("密码不能为空")
+                  return
+              }
+              if(!password){
+                  password=null
+              }
+              $.ajax({
+                  url:"user",
+                  data:{action:"checkUsePhone",'phone':phone,'code':code,'password':password},
+                  dataType:"json",
+                  success:function (data) {
+                      if (data.suc) {
+                          location.href = "index.html"
+                      }else{
+                          layer.msg(data.msg,{icon: 5,time:2000});
+                      }
+                  }
+              })
+          })
+      })
+    </script>
+
+    <script type="text/javascript">
+        function change(){
+            $(".imagecode").attr("src","imageCode?"+Math.random())
+        }
+    </script>
+    </body>
+
+  </html>
