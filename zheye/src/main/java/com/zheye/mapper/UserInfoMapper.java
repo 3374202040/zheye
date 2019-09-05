@@ -35,4 +35,7 @@ public interface UserInfoMapper {
     })
     @Select("Select * from userinfo where phone=#{phone}")
     UserInfo findByPhone(@Param("phone") String phone);
+
+    @Select("Select * from userinfo where id=#{id}")
+    UserInfo findById(@Param("id")int id);
 }

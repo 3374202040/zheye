@@ -7,6 +7,8 @@ public class Answer implements Serializable {
     private Question question;//回答的问题
     private String content;
     private UserInfo user;//回答问题的人
+    private Integer agreeTimes;//点赞数
+    private Integer disagressTimes;//反对数
 
     public Integer getId() {
         return id;
@@ -38,5 +40,33 @@ public class Answer implements Serializable {
 
     public void setUser(UserInfo user) {
         this.user = user;
+    }
+
+    public Integer getAgreeTimes() {
+        return agreeTimes;
+    }
+
+    public void setAgreeTimes(Integer agreeTimes) {
+        this.agreeTimes = agreeTimes;
+    }
+
+    public Integer getDisagressTimes() {
+        return disagressTimes;
+    }
+
+    public void setDisagressTimes(Integer disagressTimes) {
+        this.disagressTimes = disagressTimes;
+    }
+
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "id=" + id +
+                ", question=" + question +
+                ", content='" + content + '\'' +
+                ", user=" + user +
+                ", agreeTimes=" + agreeTimes +
+                ", disagressTimes=" + disagressTimes +
+                '}';
     }
 }

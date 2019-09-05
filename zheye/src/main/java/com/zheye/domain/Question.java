@@ -12,7 +12,9 @@ public class Question implements Serializable {
     private UserInfo questioner;//问题人
     private Integer subject;//所属主题
     private List<Answer> answers;//问题的回答数组
-
+    private Integer readerTimes;//阅读数
+    private Integer agreeTimes;//点赞数
+    private Integer disagressTimes;//反对数
 
     public Integer getId() {
         return id;
@@ -68,5 +70,45 @@ public class Question implements Serializable {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
+    }
+
+    public Integer getReaderTimes() {
+        return readerTimes;
+    }
+
+    public void setReaderTimes(Integer readerTimes) {
+        this.readerTimes = readerTimes;
+    }
+
+    public Integer getAgreeTimes() {
+        return agreeTimes;
+    }
+
+    public void setAgreeTimes(Integer agreeTimes) {
+        this.agreeTimes = agreeTimes;
+    }
+
+    public Integer getDisagressTimes() {
+        return disagressTimes;
+    }
+
+    public void setDisagressTimes(Integer disagressTimes) {
+        this.disagressTimes = disagressTimes;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", createtime=" + createtime +
+                ", questioner=" + questioner +
+                ", subject=" + subject +
+                ", answers=" + answers +
+                ", readerTimes=" + readerTimes +
+                ", agreeTimes=" + agreeTimes +
+                ", disagressTimes=" + disagressTimes +
+                '}';
     }
 }
