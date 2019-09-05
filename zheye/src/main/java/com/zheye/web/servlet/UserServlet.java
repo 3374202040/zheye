@@ -49,27 +49,30 @@ public class UserServlet extends HttpServlet {
         JsonObject jo =new JsonObject();
         if(!code.equals(verifyCode)) {
             jo.addProperty("msg", "验证码错误!");
-        } else if (password!=""){
-            Boolean result =userService.checkUser(phone,password);
-            if(result==false) {
-                jo.addProperty("msg", "用户名或密码错误!");
-            }else {
-                //登录成功
-                UserInfo loginer=new UserInfo();
-                jo.addProperty("suc", true);
-                session.setAttribute("loginer", loginer);
-            }
-
-        }
-        else {
+        } else {
             UserInfo userInfo =userService.findByPhone(phone);
             if (userInfo==null){
-                jo.addProperty("msg", "用户名或密码错误!");
-            }else {
-                jo.addProperty("suc", true);
-                session.setAttribute("loginer",userInfo);
-            }
+                jo.addProperty("msg", "用户名不存在!");
+                //注册一个用户
 
+                //data多传一个值
+
+            }else if (password!=""){
+                //校验用户名，秘密是否正确
+                Boolean result =userService.checkUser(phone,password);
+                if(result==false) {
+                    jo.addProperty("msg", "用户名或密码错误!");
+                }else {
+                    //登录成功
+                    UserInfo loginer=new UserInfo();
+                    jo.addProperty("suc", true);
+                    session.setAttribute("loginer", loginer);
+                }
+            }else {
+                UserInfo loginer=new UserInfo();
+                jo.addProperty("suc", true);
+                session.setAttribute("loginer",loginer);
+            }
         }
         PrintWriter out =resp.getWriter();
         out.print(jo);

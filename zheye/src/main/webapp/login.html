@@ -5,22 +5,6 @@
     <meta charSet="utf-8" />
     <title data-react-helmet="true">哲冶 - 想问啥，来哲冶</title>
     <style>
-    .u-safeAreaInset-top {
-      height: constant(safe-area-inset-top) !important;
-      height: env(safe-area-inset-top) !important;
-
-    }
-
-    .u-safeAreaInset-bottom {
-      height: constant(safe-area-inset-bottom) !important;
-      height: env(safe-area-inset-bottom) !important;
-
-    }
-    .EntrySign-body{
-      background-image: url(images/bgimg.jpg);
-      background-repeat:no-repeat;
-      background-size: cover;
-    }
   </style>
     <link href="css/app.a22669dfd7d242a5985f.css" rel="stylesheet" />
     <link rel="stylesheet" />
@@ -90,11 +74,6 @@
                         </div><button type="button" class="Button
                           CountingDownButton
                           SignFlow-smsInputButton Button--plain">获取短信验证码</button>
-                      </div>
-                      <div class="Login-options"><button type="button"
-                          class="Button Login-switchType Button--plain"></button><button
-                          type="button" class="Button Login-cannotLogin
-                          Button--plain">接收语音验证码</button>
                       </div>
                     </div>
                     <!--密码登录-->
@@ -173,10 +152,6 @@
                           </span>
                           </div>
                       </div>
-                      <div class="Login-options"><button type="button"
-                          class="Button Login-switchType Button--plain">海外手机号登录</button><button
-                          type="button" class="Button Login-cannotLogin
-                          Button--plain">忘记密码？</button></div>
                     </div>
                     <!--注册登录按钮-->
                     <button type="button" class="Button SignFlow-submitButton
@@ -213,14 +188,14 @@
                     href="/org/signup">注册机构号</a></div>
                 <div class="ZhihuRights"><span>©
                     <!-- -->2019
-                    <!-- --> 知乎</span><a target="_blank" rel="noopener
+                    <!-- --> 哲冶</span><a target="_blank" rel="noopener
                     noreferrer" href="https://tsm.miit.gov.cn/dxxzsp/">京
                     ICP 证
-                    110745 号</a><a target="_blank" rel="noopener
+                    ****** 号</a><a target="_blank" rel="noopener
                     noreferrer"
                     href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"><img
                       src="images/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png" />京公网安备
-                    11010802010035 号</a><a
+                    ************** 号</a><a
                     href="https://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg"
                     target="_blank" rel="noopener noreferrer">出版物经营许可证</a></div>
                 <div class="ZhihuReports"><a target="_blank" rel="noopener
@@ -228,7 +203,7 @@
                     target="_blank"
                     rel="noopener noreferrer" href="http://www.12377.cn">网上有害信息举报专区</a><a
                     target="_blank"
-                    rel="noopener noreferrer" href="/jubao">儿童色情信息举报专区</a><span>违法和不良信息举报：010-82716601</span></div>
+                    rel="noopener noreferrer" href="/jubao">儿童色情信息举报专区</a><span>违法和不良信息举报：***-********</span></div>
               </footer>
             </div>
           </div>
@@ -301,7 +276,7 @@
                   data:{action:"checkUsePhone",'phone':phone,'code':code,'password':password},
                   dataType:"json",
                   success:function (data) {
-                      if (data.suc) {
+                      if (data.suc&&data.s==null) {
                           location.href = "index.html"
                       }else{
                           layer.msg(data.msg,{icon: 5,time:2000});
