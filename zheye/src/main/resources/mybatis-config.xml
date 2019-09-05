@@ -28,6 +28,8 @@
     <!--定义映射器-->
     <mappers>
         <mapper class="com.zheye.mapper.UserInfoMapper"/>
+        <mapper class="com.zheye.mapper.QuestionMapper"/>
+        <mapper resource="com/zheye/mapper/QuestionMapper.xml"></mapper>
     </mappers>
 
 </configuration>
