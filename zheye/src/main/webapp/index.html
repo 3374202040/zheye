@@ -350,26 +350,70 @@
 
   function agree(id,agreetimes){
       // alert(id+"---"+agreetimes+"---"+$("#input"+id).val())
-      if($("#input"+id).val()=="true"){
-          $("#input"+id).val(false)
-          $("#btn"+id).attr("class","Button VoteButton VoteButton--up")
-          $("#span"+id).text("赞同"+(agreetimes-1))
-      }else{
+      if($("#disinput"+id).val()=="true"){
           $("#input"+id).val(true)
+          $("#disinput"+id).val(false)
+          $("#disbtn"+id).attr("class","Button VoteButton VoteButton--up ")
           $("#btn"+id).attr("class","Button VoteButton VoteButton--up is-active")
           $("#span"+id).text("已赞同"+agreetimes)
+          $.ajax({
+              url:"click",
+              data:{action: "UpAndDown",queid:`${id}`}
+          })
+      }else{
+          if($("#input"+id).val()=="true"){
+              $("#input"+id).val(false)
+              $("#btn"+id).attr("class","Button VoteButton VoteButton--up")
+              $("#span"+id).text("赞同"+(agreetimes-1))
+              $.ajax({
+                  url:"click",
+                  data:{action: "agreeDown",queid:`${id}`}
+              })
+          }else{
+              $("#input"+id).val(true)
+              $("#btn"+id).attr("class","Button VoteButton VoteButton--up is-active")
+              $("#span"+id).text("已赞同"+agreetimes)
+              $.ajax({
+                  url:"click",
+                  data:{action: "agreeUp",queid:`${id}`}
+              })
+          }
       }
+
+
 
   }
 
-  function disagre(id){
-      if($("#disinput"+id).val()=="false"){
+  function disagre(id,agreetimes){
+      if($("#input"+id).val()=="true"){
           $("#disinput"+id).val(true)
+          $("#input"+id).val(false)
+          $("#btn"+id).attr("class","Button VoteButton VoteButton--up")
+          $("#span"+id).text("赞同"+(agreetimes-1))
           $("#disbtn"+id).attr("class","Button VoteButton VoteButton--up  is-active")
+          $.ajax({
+              url:"click",
+              data:{action: "DownAndUp",queid:`${id}`}
+          })
       }else{
-          $("#disinput"+id).val(false)
-          $("#disbtn"+id).attr("class","Button VoteButton VoteButton--up ")
+          if($("#disinput"+id).val()=="false"){
+              $("#disinput"+id).val(true)
+              $("#disbtn"+id).attr("class","Button VoteButton VoteButton--up  is-active")
+              $.ajax({
+                  url:"click",
+                  data:{action: "disagreUp",queid:`${id}`}
+              })
+          }else{
+              $("#disinput"+id).val(false)
+              $("#disbtn"+id).attr("class","Button VoteButton VoteButton--up ")
+              $.ajax({
+                  url:"click",
+                  data:{action: "disagreDown",queid:`${id}`}
+              })
+          }
       }
+
+
   }
 
     $(function () {
@@ -378,7 +422,7 @@
             data:{action:"findAll"},
             dataType:"json",
             success:function (data) {
-
+                console.log(data)
                 data.forEach(question =>{
                     let $div=$(`<div class="Card TopstoryItem TopstoryItem-isRecommend" tabindex="0">
                         <div class="Feed" data-za-detail-view-path-module="FeedItem" data-za-detail-view-path-index="0"
@@ -427,7 +471,7 @@
                                         <path
                                           d="M2 18.242c0-.326.088-.532.237-.896l7.98-13.203C10.572 3.57 11.086 3 12 3c.915 0 1.429.571 1.784 1.143l7.98 13.203c.15.364.236.57.236.896 0 1.386-.875 1.9-1.955 1.9H3.955c-1.08 0-1.955-.517-1.955-1.9z"
                                           fill-rule="evenodd"></path>
-                                      </svg></span><input id="disinput${question.id}" type="hidden" value="false"> <span id="span${question.id}">赞同 ${question.agreeTimes}</span></button><button onclick="disagre(${question.id})" id="disbtn${question.id}" aria-label="反对" type="button"
+                                      </svg></span><input id="disinput${question.id}" type="hidden" value="false"> <span id="span${question.id}">已赞同 ${question.agreeTimes}</span></button><button onclick="disagre(${question.id},${question.agreeTimes})" id="disbtn${question.id}" aria-label="反对" type="button"
                                     class="Button VoteButton VoteButton--down"><span
                                       style="display: inline-flex; align-items: center;">​<svg
                                         class="Zi Zi--TriangleDown" fill="currentColor" viewBox="0 0 24 24" width="10"

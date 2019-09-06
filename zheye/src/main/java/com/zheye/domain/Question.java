@@ -13,7 +13,7 @@ public class Question implements Serializable {
 //    private UserInfo questioner;
     private Integer questionerId;//问题人id
     private Integer subject;//所属主题
-    private List<Answer> answers;//问题的回答数组
+    private List<Answer> answers;//问题的回答集合
     private Integer readerTimes;//阅读数
     private Integer agreeTimes;//点赞数
     private Integer disagressTimes;//反对数

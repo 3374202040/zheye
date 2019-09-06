@@ -20,38 +20,31 @@
       SELECT * from question
     </select>
 
-  <!--<resultMap id="question1" type="com.zheye.domain.Question">-->
-    <!--<id property="id" column="id"></id>-->
-    <!--<result property="title" column="title"></result>-->
-    <!--<result property="content" column="content"></result>-->
-    <!--<result property="createtime" column="createtime"></result>-->
-    <!--<result property="subject" column="subject"></result>-->
-    <!--<result property="agreeTimes" column="questionagreetimes"></result>-->
-    <!--<result property="disagressTimes" column="questiondisagresstimes"></result>-->
-    <!--<result property="readerTimes" column="readertimes"></result>-->
-    <!--<association property="questioner" javaType="com.zheye.domain.UserInfo"-->
-                 <!--column="questionerid" fetchType="lazy" select="com.zheye.mapper.UserInfoMapper.findById">-->
-    <!--</association>-->
-    <!--<collection property="answers" ofType="com.zheye.domain.Answer">-->
-      <!--<id property="id" column="answerid"></id>-->
-      <!--<result property="content" column="answercontent"></result>-->
-      <!--<result property="agreeTimes" column="answeragreetimes"></result>-->
-      <!--<result property="disagressTimes" column="answerdisagresstimes"></result>-->
-      <!--<association property="question" javaType="com.zheye.domain.Question"-->
-                   <!--column="id" fetchType="lazy" select="com.zheye.mapper.QuestionMapper.findById2">-->
-      <!--</association>-->
-      <!--<association property="user" javaType="com.zheye.domain.UserInfo"-->
-                   <!--column="answeruserid" fetchType="lazy" select="com.zheye.mapper.UserInfoMapper.findById">-->
-      <!--</association>-->
-    <!--</collection>-->
-  <!--</resultMap>-->
+  <resultMap id="question1" type="com.zheye.domain.Question">
+    <id property="id" column="id"></id>
+    <result property="title" column="title"></result>
+    <result property="content" column="content"></result>
+    <result property="createtime" column="createtime"></result>
+    <result property="subject" column="subject"></result>
+    <result property="agreeTimes" column="questionagreetimes"></result>
+    <result property="disagressTimes" column="questiondisagresstimes"></result>
+    <result property="readerTimes" column="readertimes"></result>
+    <result property="questionerId" column="questionerid"></result>
+    <collection property="answers" ofType="com.zheye.domain.Answer">
+      <id property="id" column="answerid"></id>
+      <result property="content" column="answercontent"></result>
+      <result property="agreeTimes" column="answeragreetimes"></result>
+      <result property="disagressTimes" column="answerdisagresstimes"></result>
+      <result property="userId" column="answeruserid"></result>
+    </collection>
+  </resultMap>
 
-  <!--<select id="findAll2" resultMap="question1">-->
-    <!--SELECT question.id id,question.title,question.content,question.createtime,question.subject,question.questionerid,-->
-<!--answer.id answerid,answer.content answercontent,answer.userid answeruserid,question.agreetimes questionagreetimes,-->
-<!--question.disagresstimes questiondisagresstimes,answer.agreetimes answeragreetimes,answer.disagresstimes answerdisagresstimes,question.readertimes-->
- <!--FROM question LEFT JOIN answer ON question.id = answer.questionid-->
-    <!--</select>-->
+  <select id="findAll2" resultMap="question1">
+    SELECT question.id id,question.title,question.content,question.createtime,question.subject,question.questionerid,
+answer.id answerid,answer.content answercontent,answer.userid answeruserid,question.agreetimes questionagreetimes,
+question.disagresstimes questiondisagresstimes,answer.agreetimes answeragreetimes,answer.disagresstimes answerdisagresstimes,question.readertimes
+ FROM question LEFT JOIN answer ON question.id = answer.questionid
+    </select>
 
 
 </mapper>  

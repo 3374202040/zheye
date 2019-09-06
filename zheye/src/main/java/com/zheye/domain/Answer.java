@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class Answer implements Serializable {
     private Integer id;
-
     private String content;
-    private UserInfo user;//回答问题的人
+//    private UserInfo user;//回答问题的人
+    private Integer userId;
     private Integer agreeTimes;//点赞数
-    private Question question;//回答的问题
+    private Integer questionId;//回答的问题
     private Integer disagressTimes;//反对数
 
     public Integer getId() {
@@ -19,12 +19,12 @@ public class Answer implements Serializable {
         this.id = id;
     }
 
-    public Question getQuestion() {
-        return question;
+    public Integer getQuestionId() {
+        return questionId;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
     }
 
     public String getContent() {
@@ -35,12 +35,13 @@ public class Answer implements Serializable {
         this.content = content;
     }
 
-    public UserInfo getUser() {
-        return user;
+
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser(UserInfo user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getAgreeTimes() {
@@ -63,9 +64,9 @@ public class Answer implements Serializable {
     public String toString() {
         return "Answer{" +
                 "id=" + id +
-                ", question=" + question +
+                ", question=" + questionId +
                 ", content='" + content + '\'' +
-                ", user=" + user +
+                ", user=" + userId +
                 ", agreeTimes=" + agreeTimes +
                 ", disagressTimes=" + disagressTimes +
                 '}';

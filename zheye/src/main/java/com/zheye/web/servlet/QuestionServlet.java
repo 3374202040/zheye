@@ -19,7 +19,7 @@ import java.util.List;
 
 @WebServlet("/question")
 public class QuestionServlet extends HttpServlet {
-    QuestionService questionService=new QuestionService();;
+    QuestionService questionService=new QuestionService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -29,13 +29,11 @@ public class QuestionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action=req.getParameter("action");
         if("findAll".equals(action)){
-            System.out.println(1);
             List<Question> list=questionService.findAll();
-            System.out.println(2);
+            System.out.println(list);
             Gson gson=new GsonBuilder().serializeNulls().create();
             PrintWriter out = resp.getWriter();
             out.print(gson.toJson(list));
-            System.out.println(3);
             out.close();
         }
     }

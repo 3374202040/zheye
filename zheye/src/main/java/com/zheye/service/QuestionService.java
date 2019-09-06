@@ -13,14 +13,17 @@ public class QuestionService {
     private QuestionMapper questionMapper;
     private SqlSession sqlSession;
 
-    public QuestionService(){
+
+
+    public void init(){
         sqlSession= SqlSessionUtil.getSqlSession();
         questionMapper=sqlSession.getMapper(QuestionMapper.class);
     }
 
-
     public List<Question> findAll(){
-        List<Question> list = questionMapper.findAll();
+        init();
+        List<Question> list = questionMapper.findAll2();
+        SqlSessionUtil.close(sqlSession);
         return list;
     }
 }

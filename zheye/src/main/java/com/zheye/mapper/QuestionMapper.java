@@ -32,6 +32,12 @@ public interface QuestionMapper {
      */
     List<Question> findAll();
 
+
+    /**
+     * 问题的点赞和踩
+     * @param id 问题id
+     * @return
+     */
     //点赞减1
     @Update("Update question Set agreetimes=agreetimes-1 where id=#{id}")
     int agreeDown(int id);
